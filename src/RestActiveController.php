@@ -39,5 +39,19 @@ class RestActiveController extends ActiveController
 
     public $serializer = 'leegoway\rest\RestSerializer';
 
+
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        $actions = parent::actions();
+        $actions['delete'] = [
+                'class' => 'leegoway\rest\DeleteAction',
+                'modelClass' => $this->modelClass,
+                'checkAccess' => [$this, 'checkAccess'],
+            ];
+        return $actions;
+    }
 }
 
