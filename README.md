@@ -25,8 +25,21 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Once the extension is installed, simply use it in your controller as base controller by  :
 
 ```php
-<?php echo '1';?>
+<?php 
+namespace app\controllers;
+
+use Yii;
+use leegoway\rest\RestActiveController;
+
+class MyController extends RestActiveController
+{
+    public $modelClass = 'app\models\User';
+}
+
+?>
 ```
+then you can get formatted output like :
+{"code":200, "msg":"", "data":{...}}
