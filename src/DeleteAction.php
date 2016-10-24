@@ -7,6 +7,7 @@ namespace leegoway\rest;
 
 use Yii;
 use yii\web\ServerErrorHttpException;
+use yii\rest\Action;
 
 /**
  * DeleteAction implements the API endpoint for deleting a model.
@@ -30,7 +31,7 @@ class DeleteAction extends Action
             throw new ServerErrorHttpException('Failed to delete the object for unknown reason.');
         }
 
-        return 200;
+        return true;
     }
 }
 
