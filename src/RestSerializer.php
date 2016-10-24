@@ -3,6 +3,8 @@
 namespace leegoway\rest;
 
 use yii\rest\Serializer;
+use Yii;
+use Yii\web\Response;
 
 class RestSerializer extends Serializer
 {
