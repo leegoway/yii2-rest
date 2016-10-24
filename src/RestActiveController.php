@@ -37,57 +37,7 @@ use yii\rest\ActiveController;
 class RestActiveController extends ActiveController
 {
 
-    public $serializer = 'leegoway\rest\Serializer';
-
-    /**
-     * @inheritdoc
-     */
-    public function init()
-    {
-        parent::init();
-        if ($this->modelClass === null) {
-            throw new InvalidConfigException('The "modelClass" property must be set.');
-        }
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'index' => [
-                'class' => 'leegoway\rest\IndexAction',
-                'modelClass' => $this->modelClass,
-                'checkAccess' => [$this, 'checkAccess'],
-            ],
-            'view' => [
-                'class' => 'leegoway\rest\ViewAction',
-                'modelClass' => $this->modelClass,
-                'checkAccess' => [$this, 'checkAccess'],
-            ],
-            'create' => [
-                'class' => 'leegoway\rest\CreateAction',
-                'modelClass' => $this->modelClass,
-                'checkAccess' => [$this, 'checkAccess'],
-                'scenario' => $this->createScenario,
-            ],
-            'update' => [
-                'class' => 'leegoway\rest\UpdateAction',
-                'modelClass' => $this->modelClass,
-                'checkAccess' => [$this, 'checkAccess'],
-                'scenario' => $this->updateScenario,
-            ],
-            'delete' => [
-                'class' => 'leegoway\rest\DeleteAction',
-                'modelClass' => $this->modelClass,
-                'checkAccess' => [$this, 'checkAccess'],
-            ],
-            'options' => [
-                'class' => 'leegoway\rest\OptionsAction',
-            ],
-        ];
-    }
+    public $serializer = 'leegoway\rest\RestSerializer';
 
 }
 
