@@ -49,7 +49,7 @@ class RestSerializer extends Serializer
                 'message' => $message,
             ];
         }
-        return ['code' => 400, 'msg' => null, 'data' => null, 'errors' => $errors]; 
+        return ['code' => 400, 'msg' => '', 'data' => null, 'errors' => $errors]; 
     }
 
 	/**
