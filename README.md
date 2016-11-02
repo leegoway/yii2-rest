@@ -43,3 +43,14 @@ class MyController extends RestActiveController
 ```
 then you can get formatted output like :
 {"code":200, "msg":"", "data":{...}}
+
+Besides, use the formatter class anywhere you need like this :
+```php
+use leegoway\rest\Formatter;
+
+...
+Formatter::success($data);//返回业务数据
+Formatter::error($errors);//返回校验失败的数据
+Formatter::fail($msg);//业务逻辑问题导致的失败
+```
+then you can get formatted output.
