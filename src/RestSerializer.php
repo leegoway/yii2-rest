@@ -20,6 +20,7 @@ class RestSerializer extends Serializer
 	{
 		parent::init();
 		Yii::$app->response->format = Response::FORMAT_JSON;
+
 	}
 
     public function serialize($data)
@@ -31,7 +32,7 @@ class RestSerializer extends Serializer
         } elseif ($data instanceof DataProviderInterface) {
             return $this->serializeDataProvider($data);
         } else {
-            return ['code' => 200, 'msg' => '', 'data' => $data, 'errors' => null];
+            return Formatter::success($data);
         }
     }
 
@@ -49,7 +50,7 @@ class RestSerializer extends Serializer
                 'message' => $message,
             ];
         }
-        return ['code' => 400, 'msg' => '', 'data' => null, 'errors' => $errors]; 
+        return Formatter::error($data); 
     }
 
 	/**
@@ -60,7 +61,7 @@ class RestSerializer extends Serializer
     protected function serializeDataProvider($dataProvider)
     {
         $result = parent::serializeDataProvider($dataProvider);
-        return ['code' => 200, 'msg' => '', 'data' => $result, 'errors' => null]; 
+        return Formatter::success($result); 
     }
 
     /**
@@ -71,7 +72,7 @@ class RestSerializer extends Serializer
     protected function serializeModel($model)
     {
         $model = parent::serializeModel($model);
-        return ['code' => 200, 'msg' => '', 'data' => $model, 'errors' => null]; 
+        return Formatter::success($model); ; 
     }
 
 
