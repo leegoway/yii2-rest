@@ -16,12 +16,11 @@ use yii\web\Response;
 class RestSerializer extends Serializer
 {
 
-	public function init()
-	{
-		parent::init();
-		Yii::$app->response->format = Response::FORMAT_JSON;
-
-	}
+    public function init()
+    {
+        parent::init();
+        Yii::$app->response->format = Response::FORMAT_JSON;
+    }
 
     public function serialize($data)
     {
@@ -50,7 +49,7 @@ class RestSerializer extends Serializer
                 'message' => $message,
             ];
         }
-        return Formatter::error($data); 
+        return Formatter::error($errors); 
     }
 
 	/**
