@@ -20,7 +20,7 @@ class Formatter
     //业务错误，返回错误信息
     public static function fail($msg, $code = 500)
     {
-        return ['code' => $code, 'msg' => $msg, 'data' => $data, 'errors' => null];
+        return ['code' => $code, 'msg' => $msg, 'data' => null, 'errors' => null];
     }
 
     //校验失败，返回校验错误信息
