@@ -1,5 +1,7 @@
 <?php
 
+namespace leegoway\rest;
+
 class RestController extends \yii\web\Controller
 {
 
