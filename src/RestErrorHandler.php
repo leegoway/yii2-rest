@@ -1,8 +1,10 @@
 <?php
 
 namespace leegoway\rest;
+use Yii;
+use yii\web\Response;
 
-class ErrorHandler extends \yii\web\ErrorHandler
+class RestErrorHandler extends \yii\web\ErrorHandler
 {
     public $restErrorAction;
 
@@ -28,6 +30,7 @@ class ErrorHandler extends \yii\web\ErrorHandler
             } else {
                 $response->data = $result;
             }
+            Yii::$app->response->format = Response::FORMAT_JSON;
             $response->send();
         } else {
             parent::renderException($exception);
